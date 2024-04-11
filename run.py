@@ -1,4 +1,7 @@
+# Print to check if the file is running
+print("run.py is running")
 # import libraries
+
 
 
 # Define the Battleship class
