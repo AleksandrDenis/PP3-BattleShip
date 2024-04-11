@@ -5,11 +5,13 @@ print("run.py is running")
 
 
 # Define the Battleship class
-
+class Battleship:
     # Method to initialize attributes
-
-    # Grid size input selected by user
-
+    def __init__(self):
+        pass
+        # Grid size input selected by user
+        self.grid_size = None
+        pass
     # List of user and computer ships
 
     # Set to store user and computer ship coordinates
