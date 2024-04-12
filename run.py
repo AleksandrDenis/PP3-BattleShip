@@ -9,10 +9,27 @@ end_color = "\033[0m"
 class Battleship:
     # Initialize the game with grid size and ships chosen by the player
     def __init__(self):
-        self.grid_size = int(input(green + "Choose grid size 6 or 10: " ))
+        self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
         while self.grid_size not in [6, 10]:
             print(red + "Invalid grid size. Please choose 6 or 10." + end_color)
             self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
+        self.player_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
+        self.computer_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
+    
+    # Print the grid state
+    def print_grids(self):
+        print("Player's Grid:")
+        self.print_grid(self.player_grid)
+        print("Computer's Grid:")
+        self.print_grid(self.computer_grid)
+    
+    def print_grid(self, grid):
+        
+
+        
+
+
+
     # The main gameplay loop
     def play(self):
         print() # Print a blank line
@@ -32,6 +49,9 @@ class Battleship:
         if accept_mission.lower() != 'y':
             print(red + "Mission declined. Exiting the game." + end_color)
             return
+
+           
+        
 
 
 
