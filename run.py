@@ -7,8 +7,14 @@ red = "\033[91m"
 end_color = "\033[0m"
 # Define the Battleship class
 class Battleship:
+    # Initialize the game with grid size and ships chosen by the player
+    def __init__(self):
+        self.grid_size = int(input("Choose grid size 6 or 10: "))
+        while self.grid_size not in [6, 10]:
+            print("Invalid grid size. Please choose 6 or 10.")
     # The main gameplay loop
     def play(self):
+        print() # Print a blank line
         self.player_name = input(green + "Please enter your name: ")
         print() # Print a blank line
         welcome_message = f"Welcome to Battleship Captain {self.player_name}!\n----------------------"
