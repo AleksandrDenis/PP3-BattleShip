@@ -133,6 +133,10 @@ class Battleship:
             if not self.computer_ships_positions:
                 break
             turns += 1
+        if self.player_ships_positions:
+            print(yellow + f"Congratulations Capitan {self.player_name}! You won in {turns} turns!" + end_color)
+        else:
+            print(red + "Computer won! Better luck next time!" + end_color)
             
 
            
