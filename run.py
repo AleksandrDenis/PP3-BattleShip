@@ -17,7 +17,7 @@ class Battleship:
             self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
         self.player_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
         self.computer_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
-        self.place_ships_positions = set()
+        self.player_ships_positions = set()
         self.computer_ships_positions = set()
         self.player_attempts = set()
         if self.grid_size == 10:
@@ -67,10 +67,10 @@ class Battleship:
                     print(red + "Invalid guess you off-grid! Try again." + end_color)
                 else:
                     self.player_attempts.add((row, col))
-                    if (row, col) in self.computer_ship_positions:
+                    if (row, col) in self.computer_ships_positions:
                         print(red + "Hit!" + end_color)
                         self.computer_grid[row][col] = "X"
-                        self.computer_ship_positions.remove((row, col))
+                        self.computer_ships_positions.remove((row, col))
                     else:
                         print(yellow + "Miss!" + end_color)
                         self.computer_grid[row][col] = "O"
@@ -108,10 +108,12 @@ class Battleship:
         if accept_mission.lower() != 'y':
             print(red + "Mission declined. Exiting the game." + end_color)
             return
-        self.place_ships(self.player_grid, self.place_ships_positions)
+        self.place_ships(self.player_grid, self.player_ships_positions)
         self.place_ships(self.computer_grid, self.computer_ships_positions)
-        
-        self.print_grids()
+
+        while self.player_ships_positions and self.computer_ships_positions:        
+            self.print_grids()
+            self.player_guess()
             
 
            
