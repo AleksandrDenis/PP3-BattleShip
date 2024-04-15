@@ -22,8 +22,19 @@ class Battleship:
         self.print_grid(self.player_grid)
         print("Computer's Grid:")
         self.print_grid(self.computer_grid)
-    
+
+    # Print grid numbers
     def print_grid(self, grid):
+        print(green + "  " + " ".join(str(i) for i in range(self.grid_size)) + end_color)
+    # Print grid row in letters
+        for i, row in enumerate(grid):
+            print(green +chr(65 + i) + end_color + " " + " ")
+            
+    
+
+        
+
+        
         
 
         
@@ -49,6 +60,8 @@ class Battleship:
         if accept_mission.lower() != 'y':
             print(red + "Mission declined. Exiting the game." + end_color)
             return
+       
+            
 
            
         
