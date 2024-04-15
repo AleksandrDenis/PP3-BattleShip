@@ -5,6 +5,7 @@ import time
 blue = "\033[94m"
 green = "\033[92m"
 red = "\033[91m"
+yellow = "\033[93m"
 end_color = "\033[0m"
 # Define the Battleship class
 class Battleship:
@@ -18,6 +19,7 @@ class Battleship:
         self.computer_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
         self.place_ships_positions = set()
         self.computer_ships_positions = set()
+        self.player_attempts = set()
         if self.grid_size == 10:
             self.ships_sizes = [1, 2, 3, 4, 5]
         else:
@@ -52,7 +54,30 @@ class Battleship:
                         break
                 
 
-            
+    # Allow the player to make a move and check if of grid moves
+    def player_guess(self):
+        while True:
+            try:
+                row, col = input("Enter your guess Row  and Column (e.g. A5): ").upper()
+                row = ord(row) - 65
+                col = int(col)
+                if (row, col) in self.player_attempts:
+                    print(red + "You have alredy tried this spot! Try again." + end_color)
+                elif (row < 0 or row >= self.grid_size or col < 0 or col >= self.grid_size):
+                    print(red + "Invalid guess you off-grid! Try again." + end_color)
+                else:
+                    self.player_attempts.add((row, col))
+                    if (row, col) in self.computer_ship_positions:
+                        print(red + "Hit!" + end_color)
+                        self.computer_grid[row][col] = "X"
+                        self.computer_ship_positions.remove((row, col))
+                    else:
+                        print(yellow + "Miss!" + end_color)
+                        self.computer_grid[row][col] = "O"
+                    break
+            except ValueError:
+                print(red + "Invalid input! Enter row letter and column number." + end_color)
+
     
 
         
