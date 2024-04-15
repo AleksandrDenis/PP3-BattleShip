@@ -61,7 +61,7 @@ class Battleship:
     def player_guess(self):
         while True:
             try:
-                row, col = input("Enter your guess Row  and Column (e.g. A5):\n").upper()
+                row, col = input("Enter your guess Row  and Column (e.g. A5): ").upper()
                 row = ord(row) - 65
                 col = int(col)
                 if (row, col) in self.player_attempts:
@@ -100,7 +100,7 @@ class Battleship:
         print() # Print a blank line
         self.player_name = input(green + "Please enter your name:\n")
         print() # Print a blank line
-        welcome_message = f"Welcome to Battleship Captain {self.player_name}!\n----------------------"
+        welcome_message = f"Welcome to Battleship Captain {self.player_name}!\n----------------------\n"
         for char in welcome_message:
             print(green + char, end='', flush=True)
             time.sleep(0.05)       
@@ -108,7 +108,7 @@ class Battleship:
         for char in rules:
             print(char, end='', flush=True)
             time.sleep(0.05)
-        promt = "Do you accept the mission? Press 'Y' to accept or 'N' to decline:\n " 
+        promt = "Do you accept the mission? Press 'Y' to accept or 'N' to decline: " 
         for char in promt:
             print(green + char + end_color, end='', flush=True)
             time.sleep(0.05)
@@ -119,7 +119,7 @@ class Battleship:
         self.place_ships(self.player_grid, self.player_ships_positions)
         self.place_ships(self.computer_grid, self.computer_ships_positions)
         turns = 0
-        while self.player_ships_positions and self.computer_ships_positions:        
+        while self.player_ships_positions and self.computer_ships_positions:
             self.print_grids()
             self.player_guess()
             self.computer_guess()
