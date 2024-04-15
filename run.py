@@ -80,7 +80,7 @@ class Battleship:
                         self.computer_ships_positions.remove((row, col))
                     else:
                         print(yellow + "Miss!" + end_color)
-                        self.computer_grid[row][col] = "O"
+                        self.computer_grid[row][col] = "x"
                     break
             except ValueError:
                 print(red + "Invalid input! Enter row letter and column number." + end_color)
@@ -97,7 +97,7 @@ class Battleship:
             self.player_ships_positions.remove((row, col))
         else:
             print(yellow + f"Computer missed at ({chr(65 + row)}, {col})!" + end_color)
-            self.player_grid[row][col] = "O"
+            self.player_grid[row][col] = "x"
 
     # The main gameplay loop
     def play(self):
@@ -108,7 +108,7 @@ class Battleship:
         for char in welcome_message:
             print(green + char, end='', flush=True)
             time.sleep(0.05)       
-        rules = " Rules of Engagement:\n You will be playing against the computer.\n Each of you will have a grid with ships.\n The goal is to sink all of the opponent's ships by\n guessing their positions on the grid.\n If you hit a ship, it will be marked with 💥.\n If you miss, it will be marked with O.\n The battle continues until all ships of one player are sunk.\n-------------------------------\n"
+        rules = " Rules of Engagement:\n You will be playing against the computer.\n Each of you will have a grid with ships.\n The goal is to sink all of the opponent's ships by\n guessing their positions on the grid.\n If you hit a ship, it will be marked with 💥.\n If you miss, it will be marked with x.\n The battle continues until all ships of one player are sunk.\n-------------------------------\n"
         for char in rules:
             print(char, end='', flush=True)
             time.sleep(0.05)
