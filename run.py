@@ -125,11 +125,14 @@ class Battleship:
             return
         self.place_ships(self.player_grid, self.player_ships_positions)
         self.place_ships(self.computer_grid, self.computer_ships_positions)
-
+        turns = 0
         while self.player_ships_positions and self.computer_ships_positions:        
             self.print_grids()
             self.player_guess()
             self.computer_guess()
+            if not self.computer_ships_positions:
+                break
+            turns += 1
             
 
            
