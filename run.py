@@ -1,4 +1,5 @@
 # import libraries
+import random
 import time 
 # ANSI Escape Codes
 blue = "\033[94m"
@@ -15,6 +16,8 @@ class Battleship:
             self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
         self.player_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
         self.computer_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
+        self.place_ships_positions = set()
+        self.computer_ships_positions = set()
         if self.grid_size == 10:
             self.ships_sizes = [1, 2, 3, 4, 5]
         else:
@@ -36,6 +39,18 @@ class Battleship:
 
     # Place ships randomly on the grid
     def place_ships(self, grid, ship_positions):
+        for size in self.ships_sizes:
+            while True:
+                orientation = random.choice(["horizontal", "vertical"])
+                if orientation == "horizontal":
+                    row = random.randint(0, self.grid_size -1)
+                    col = random.randint(0, self.grid_size - size)
+                    if all(grid[row][col + i] == "~" for i in range(size)):
+                        for i in range(size):
+                            grid[row][col + i] = "@"
+                            ship_positions.add((row, col + i))
+                        break
+                
 
             
     
