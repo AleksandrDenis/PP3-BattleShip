@@ -20,6 +20,7 @@ class Battleship:
         self.player_ships_positions = set()
         self.computer_ships_positions = set()
         self.player_attempts = set()
+        self.computer_attempts = set()
         if self.grid_size == 10:
             self.ships_sizes = [1, 2, 3, 4, 5]
         else:
@@ -77,6 +78,20 @@ class Battleship:
                     break
             except ValueError:
                 print(red + "Invalid input! Enter row letter and column number." + end_color)
+    
+    # Allow the computer to make a move
+    def computer_guess(self):
+        row, col = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
+        while (row, col) in self.computer_attempts:
+            row, col = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
+        self.computer_attempts.add((row, col))
+        if (row, col) in self.player_ships_positions:
+            print(red + f"Computer hit your ship at ({row}, {col})!" + end_color)
+            self.player_grid[row][col] = "X"
+            self.player_ships_positions.remove((row, col))
+        else:
+            print(yellow + f"Computer missed at ({row}, {col})!" + end_color)
+            self.player_grid[row][col] = "O"
 
     
 
@@ -114,6 +129,7 @@ class Battleship:
         while self.player_ships_positions and self.computer_ships_positions:        
             self.print_grids()
             self.player_guess()
+            self.computer_guess()
             
 
            
