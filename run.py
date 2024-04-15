@@ -39,10 +39,10 @@ class Battleship:
 
     # Print grid numbers
     def print_grid(self, grid, hide_ships=False):
-        print(green + "  " + " ".join(str(i) for i in range(self.grid_size)) + end_color)
+        print(green + "   " + "  ".join(str(i) for i in range(self.grid_size)) + end_color)
     # Print grid row in letters
         for i, row in enumerate(grid):
-            print(green +chr(65 + i) + end_color + " " + " ".join(
+            print(green +chr(65 + i) + end_color + "  " + "  ".join(
                 blue + "~" + end_color if cell == "~" or (cell == "⛴" and hide_ships) else 
                 cell for cell in row))
         print() # Print a blank line
