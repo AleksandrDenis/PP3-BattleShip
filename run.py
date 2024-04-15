@@ -31,14 +31,17 @@ class Battleship:
         print("Player's Grid:")
         self.print_grid(self.player_grid)
         print("Computer's Grid:")
-        self.print_grid(self.computer_grid)
+        self.print_grid(self.computer_grid, hide_ships=True)
 
     # Print grid numbers
-    def print_grid(self, grid):
+    def print_grid(self, grid, hide_ships=False):
         print(green + "  " + " ".join(str(i) for i in range(self.grid_size)) + end_color)
     # Print grid row in letters
         for i, row in enumerate(grid):
-            print(green +chr(65 + i) + end_color + " " + " ".join(blue + "~" + end_color if cell == "~" else cell for cell in row))
+            print(green +chr(65 + i) + end_color + " " + " ".join(
+                blue + "~" + end_color if cell == "~" or (cell == "@" and hide_ships) else 
+                cell for cell in row))
+        print() # Print a blank line
 
     # Place ships randomly on the grid
     def place_ships(self, grid, ship_positions):
