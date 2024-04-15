@@ -83,6 +83,8 @@ class Battleship:
         if accept_mission.lower() != 'y':
             print(red + "Mission declined. Exiting the game." + end_color)
             return
+        self.place_ships(self.player_grid, self.place_ships_positions)
+        self.place_ships(self.computer_grid, self.computer_ships_positions)
         
         self.print_grids()
             
