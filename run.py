@@ -28,7 +28,7 @@ class Battleship:
         print(green + "  " + " ".join(str(i) for i in range(self.grid_size)) + end_color)
     # Print grid row in letters
         for i, row in enumerate(grid):
-            print(green +chr(65 + i) + end_color + " " + " ")
+            print(green +chr(65 + i) + end_color + " " + " ".join(blue + "~" + end_color if cell == "~" else cell for cell in row))
             
     
 
