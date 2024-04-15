@@ -39,7 +39,7 @@ class Battleship:
     # Print grid row in letters
         for i, row in enumerate(grid):
             print(green +chr(65 + i) + end_color + " " + " ".join(
-                blue + "~" + end_color if cell == "~" or (cell == "@" and hide_ships) else 
+                blue + "~" + end_color if cell == "~" or (cell == "⛴" and hide_ships) else 
                 cell for cell in row))
         print() # Print a blank line
 
@@ -53,7 +53,7 @@ class Battleship:
                     col = random.randint(0, self.grid_size - size)
                     if all(grid[row][col + i] == "~" for i in range(size)):
                         for i in range(size):
-                            grid[row][col + i] = "@"
+                            grid[row][col + i] = "⛴"
                             ship_positions.add((row, col + i))
                         break
 
@@ -72,7 +72,7 @@ class Battleship:
                     self.player_attempts.add((row, col))
                     if (row, col) in self.computer_ships_positions:
                         print(red + "Hit!" + end_color)
-                        self.computer_grid[row][col] = "X"
+                        self.computer_grid[row][col] = "🔥"
                         self.computer_ships_positions.remove((row, col))
                     else:
                         print(yellow + "Miss!" + end_color)
@@ -89,7 +89,7 @@ class Battleship:
         self.computer_attempts.add((row, col))
         if (row, col) in self.player_ships_positions:
             print(red + f"Computer hit your ship at ({chr(65 + row)}, {col})!" + end_color)
-            self.player_grid[row][col] = "X"
+            self.player_grid[row][col] = "🔥"
             self.player_ships_positions.remove((row, col))
         else:
             print(yellow + f"Computer missed at ({chr(65 + row)}, {col})!" + end_color)
@@ -104,7 +104,7 @@ class Battleship:
         for char in welcome_message:
             print(green + char, end='', flush=True)
             time.sleep(0.05)       
-        rules = "RULES will be printed" #" Rules of Engagement:\n You will be playing against the computer.\n Each of you will have a grid with ships.\n The goal is to sink all of the opponent's ships by\n guessing their positions on the grid.\n If you hit a ship, it will be marked with 'X'.\n If you miss, it will be marked with 'O'.\n The battle continues until all ships of one player are sunk.\n-------------------------------\n"
+        rules = " Rules of Engagement:\n You will be playing against the computer.\n Each of you will have a grid with ships.\n The goal is to sink all of the opponent's ships by\n guessing their positions on the grid.\n If you hit a ship, it will be marked with '🔥'.\n If you miss, it will be marked with 'O'.\n The battle continues until all ships of one player are sunk.\n-------------------------------\n"
         for char in rules:
             print(char, end='', flush=True)
             time.sleep(0.05)
