@@ -11,10 +11,14 @@ end_color = "\033[0m"
 class Battleship:
     # Initialize the game with grid size and ships chosen by the player
     def __init__(self):
-        self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
-        while self.grid_size not in [6, 10]:
-            print(red + "Invalid grid size. Please choose 6 or 10." + end_color)
-            self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
+        while True:
+            try:
+                self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
+                if self.grid_size not in [6, 10]:
+                    raise ValueError
+                break
+            except ValueError:
+                print(red + "Invalid grid size. Please choose 6 or 10." + end_color)
         self.player_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
         self.computer_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
         self.player_ships_positions = set()
