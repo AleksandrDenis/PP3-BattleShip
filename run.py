@@ -15,6 +15,10 @@ class Battleship:
             self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
         self.player_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
         self.computer_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
+        if self.grid_size == 10:
+            self.ships_sizes = [1, 2, 3, 4, 5]
+        else:
+            self.ships_sizes = [1, 2, 3]
     
     # Print the grid state
     def print_grids(self):
@@ -29,6 +33,10 @@ class Battleship:
     # Print grid row in letters
         for i, row in enumerate(grid):
             print(green +chr(65 + i) + end_color + " " + " ".join(blue + "~" + end_color if cell == "~" else cell for cell in row))
+
+    # Place ships randomly on the grid
+    def place_ships(self, grid, ship_positions):
+
             
     
 
