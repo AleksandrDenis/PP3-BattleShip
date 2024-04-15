@@ -86,11 +86,11 @@ class Battleship:
             row, col = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
         self.computer_attempts.add((row, col))
         if (row, col) in self.player_ships_positions:
-            print(red + f"Computer hit your ship at ({row}, {col})!" + end_color)
+            print(red + f"Computer hit your ship at ({chr(65 + row)}, {col})!" + end_color)
             self.player_grid[row][col] = "X"
             self.player_ships_positions.remove((row, col))
         else:
-            print(yellow + f"Computer missed at ({row}, {col})!" + end_color)
+            print(yellow + f"Computer missed at ({chr(65 + row)}, {col})!" + end_color)
             self.player_grid[row][col] = "O"
 
     
