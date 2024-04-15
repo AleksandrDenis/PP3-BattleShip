@@ -56,7 +56,6 @@ class Battleship:
                             grid[row][col + i] = "@"
                             ship_positions.add((row, col + i))
                         break
-                
 
     # Allow the player to make a move and check if of grid moves
     def player_guess(self):
@@ -81,7 +80,7 @@ class Battleship:
                     break
             except ValueError:
                 print(red + "Invalid input! Enter row letter and column number." + end_color)
-    
+
     # Allow the computer to make a move
     def computer_guess(self):
         row, col = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
@@ -95,17 +94,6 @@ class Battleship:
         else:
             print(yellow + f"Computer missed at ({chr(65 + row)}, {col})!" + end_color)
             self.player_grid[row][col] = "O"
-
-    
-
-        
-
-        
-        
-
-        
-
-
 
     # The main gameplay loop
     def play(self):
@@ -140,15 +128,6 @@ class Battleship:
             print(yellow + f"Congratulations Capitan {self.player_name}! You won in {turns} turns!" + end_color)
         else:
             print(red + "Computer won! Better luck next time!" + end_color)
-            
-
-           
-        
-
-
-
-
-
 
 # Run the game
 game = Battleship()
