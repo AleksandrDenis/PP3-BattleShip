@@ -99,7 +99,41 @@ Before starting to write code, I began with pseudocode. Pseudocode is an essenti
 
 # Testing
 ## Testing User Stories
-
+* As a user, I want to easily find and understand the rules of the game.
+  * The rules are clearly displayed in terminal.
+* As a user, I want to be able to enter my name when starting the game.
+  * The game displays a clear input field where user can type his name.
+* As a user, I want to be able to select the grid size before starting the game.
+  * The game presents user with a selection of grid sizes to choose from.
+* As a user, I want to be presented with the an option to accept or decline game.
+  * The game clearly displays the rules before the start of the game.
+  * There is an “Accept” option to start the game, indicating user agree with the rules.
+  * There is a “Decline” option that allows user to exit the game if user do not agree with the rules.
+* As a user, I want the game to automatically place my ships randomly on the grid.
+  * When starting a new game, the ships  are distributed randomly across the grid.
+* I want to see the positions of my ships on the grid during gameplay.
+  * The grid displays user ship locations during the game.
+  * The ship positions remain visible throughout the game.
+* As a user, I want to be able to select a cell on the grid to make my move.
+  * The game provides a clear interface where user can enter his choice to make my move.
+  * After selecting a cell, the game processes user move and proceeds to the opponent’s turn.
+* As a user, I want immediate feedback on whether my shot hit or missed an opponent’s ship.
+  * If user shot hits an opponent’s ship, the game displays a visual indicator on the grid.
+  * If user shot misses, the game displays a different visual indicator on the grid.
+  * The game informs user of the result (hit or miss) after each move.
+* As a user, I want to receive a warning or error message if Im fired of grid or alredy fired in this cell.
+   * If user attempt to fire at an already targeted cell, the game warns user that it’s an invalid move.
+   * If user select a cell outside the grid boundaries, the game provides a clear error message.
+   * The game prevents user from proceeding until he make a valid move.
+* As a user, I want to be able to see the locations where my opponent has fired shots on my grid.
+  * The game displays the opponent’s shots (hits and misses) on user grid.
+  * Hits are marked with a visual indicator.
+  * Misses are marked with a different visual indicator.
+  * The opponent’s shot history remains visible throughout the game.
+* As a user, I want to be clearly notified when the game is over.
+   * The game displays a distinct message or screen indicating the game has ended.
+   * The end-of-game message states which player won.
+   * The message includes the total number of turns taken by each player during the game.
 ## Manual Testing
 Test | Steps | Expected Outcome | Result
 --- | --- | --- | ---
