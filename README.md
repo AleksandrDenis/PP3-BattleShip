@@ -53,3 +53,42 @@ This is a simple implementation of the classic Battleship game in Python. Player
   * So that I can strategize and anticipate their next moves.
 * As a user, I want to be clearly notified when the game is over.
    * So that I can understand who won and how many turns it took to finish the game.
+
+# Workflow
+## Pseudocode
+Before starting to write code, I began with pseudocode. Pseudocode is an essential step in algorithm design, aiding the programmer in strategizing a solution and assisting the reader in grasping the method of tackling the problem.
+
+1. Import the necessary libraries (random and time).
+2. Define ANSI escape codes for color formatting in the terminal.
+3. Define a class called Battleship.
+4. In the class constructor (__init__ method):
+   - Ask the user to choose a grid size (6 or 10).
+   - Initialize player and computer grids based on the chosen size.
+   - Initialize sets to store player and computer ship positions and attempts.
+   - Define ship sizes based on the chosen grid size.
+5. Define a method to print the current state of the player's and computer's grids.
+6. Define a method to print a grid with optional hiding of ships.
+7. Define a method to place ships randomly on a grid.
+8. Define a method to handle player's guess:
+   - Ask the player for a guess.
+   - Check if the guess is valid and hasn't been attempted before.
+   - If the guess hits a ship, mark it and remove the ship position from the set.
+   - If the guess misses, mark it on the grid.
+9. Define a method to handle computer's guess:
+   - Generate a random guess.
+   - Check if the guess hasn't been attempted before.
+   - If the guess hits a ship, mark it and remove the ship position from the set.
+   - If the guess misses, mark it on the grid.
+10. Define the main gameplay loop (play method):
+    - Ask the player for their name.
+    - Print a welcome message and the rules of the game.
+    - Ask the player if they accept the mission.
+    - If the player declines, exit the game.
+    - If the player accepts, place ships on the player's and computer's grids.
+    - While there are still ships on both grids, let the player and computer take turns guessing.
+    - After each turn, check if all ships of one player have been sunk.
+    - If all ships of one player have been sunk, end the game and declare the other player as the winner.
+
+11. Outside the class, create an instance of the Battleship class and start the game by calling the play method.
+
+
