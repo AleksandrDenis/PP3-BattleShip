@@ -91,7 +91,7 @@ Before starting to write code, I began with pseudocode. Pseudocode is an essenti
 11. Outside the class, create an instance of the Battleship class and start the game by calling the play method.
 
 ## Chart
-
+![Flow Chart](/readme-docs/flow-chart.png)
 
 
 
