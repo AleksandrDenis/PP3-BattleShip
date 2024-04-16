@@ -1,31 +1,31 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BattleShip
+## Overview
+This is third projects developed as part of the Code Institute's curriculum.
 
-Welcome Denis Kudriavcev,
+Project displays the application of Python programming skills and is deployed on Heroku,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+demonstrating practical knowledge in web development and cloud deployment.
 
-## Reminders
+## About Website
+This is a simple implementation of the classic Battleship game in Python. Players take turns guessing the location of their opponent’s ships on a grid. More information can be found here - [Battleship (Game)](https://en.wikipedia.org/wiki/Battleship_(game))
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+### Deployed website can be found here and runs in the mock terminal on Heroku. - [BattleShip](https://battleship-game-pp3-cci-7084bd9f71a7.herokuapp.com/)
 
-## Creating the Heroku app
+# Index
+1. [Overview](#overview)
+2. [About](#about-website)
+3. [UX](#ux)
+  1.  [User stories](#user-stories)
+  2.  [Workflow](#workflow)
+4. [Deployment](#deployment)
+5. [Features](#features)
+6. [Testing](#testing)
+   1. [Testing User Stories](#testing-user-stories)
+   2. [Manual Testing](#manual-testing)
+   3. [Validator Testing](#validator-testing)
+   4. 5. [Bugs](#bugs)
+7. [Languages and Programs](#languages-and-programs)
+8. [Credits](#credits)
+    1. [Code](#code)
+9. [Acknowledgements](#acknowledgements)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
