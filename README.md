@@ -94,6 +94,17 @@ Before starting to write code, I began with pseudocode. Pseudocode is an essenti
 ![Flow Chart](/readme-docs/flow-chart.png)
 
 # Deployment
+Deployment Steps After Setting Up Your Account:
+1. In the top-right corner of your Heroku Dashboard, click New, then choose Create new app from the dropdown.
+2. Enter a unique name for your app, select a region closest to you (either EU or USA), and click Create App.
+3. In your app’s Settings, select Reveal Config Vars. Set PORT as the KEY and 8000 as the value, then click Add.
+4. Scroll down to the Buildpacks section and click Add Buildpack to manage dependencies.
+5. Ensure the buildpacks are in the correct order: Python first, followed by Node.js.
+6. Navigate to deploy ssection select deployment method.
+7. Navigate to deploy branch shoose a branch to deploy.
+8. Select deploy branch.
+9. After deploymed done select open app to view deployd project.
+10. More information can be found here - [HEROKU](https://devcenter.heroku.com/articles/git)
 
 # Features
 
