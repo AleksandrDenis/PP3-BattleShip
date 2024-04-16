@@ -93,5 +93,40 @@ Before starting to write code, I began with pseudocode. Pseudocode is an essenti
 ## Chart
 ![Flow Chart](/readme-docs/flow-chart.png)
 
+# Deployment
+
+# Features
+
+# Testing
+## Testing User Stories
+
+## Manual Testing
+Test | Steps | Expected Outcome | Result
+--- | --- | --- | ---
+Initialization | Run the script | The script should prompt you to choose a grid size of 6 or 10 | Yes
+Grid Size Input | Enter a valid grid size (6 or 10) | The script should accept the input and proceed to the next step | Yes
+---- | Enter an invalid grid size (any number other than 6 or 10) | The script should display an error message and prompt you to enter a valid grid size again | Yes
+Player Name Input | Enter a valid name | The script should accept the input and display a welcome message | Yes
+---- | No name entered | The script should accept the input and display a welcome message with no name | Yes
+Game Rules Acceptance | Enter 'Y' to accept the missionEnter | The script should proceed to the game | Yes
+---- | Enter 'N' or any key to decline the mission | The script should display a message "Mission declined. Exiting the game." and exit the game | Yes
+Grid prints | No input required | The scrip should display selected grid with amount ships based on it size | Yes
+Player Guess | Enter a valid guess (e.g., A5) | The script should accept the input and display whether it was a hit or miss | Yes
+---- | Enter an invalid guess (e.g., Z20) | The script should display an error message and prompt you to enter a valid guess again | Yes
+Computer Guess | No input required | The script should display the computer's guess and whether it was a hit or miss | Yes
+Game End | No input required | The script should display a message indicating who won the game and amout trys it took | Yes
+
+
+
+
+
+## Validator Testing
+
+
+
+
+
+
+
 
 
