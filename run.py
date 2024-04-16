@@ -15,14 +15,23 @@ class Battleship:
     def __init__(self):
         while True:
             try:
-                self.grid_size = int(input(green + "Choose grid size 6 or 10: "))
+                self.grid_size = int(input(
+                    green + " Choose grid size 6 or 10: "
+                ))
                 if self.grid_size not in [6, 10]:
                     raise ValueError
                 break
             except ValueError:
-                print(red + "Invalid grid size. Please choose 6 or 10." + end_color)
-        self.player_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
-        self.computer_grid = [["~"] * self.grid_size for _ in range(self.grid_size)]
+                print(
+                    red + "Invalid grid size.\
+                          Please choose 6 or 10." + end_color
+                )
+        self.player_grid = [
+            ["~"] * self.grid_size for _ in range(self.grid_size)
+        ]
+        self.computer_grid = [
+            ["~"] * self.grid_size for _ in range(self.grid_size)
+        ]
         self.player_ships_positions = set()
         self.computer_ships_positions = set()
         self.player_attempts = set()
@@ -41,11 +50,15 @@ class Battleship:
 
     # Print grid numbers
     def print_grid(self, grid, hide_ships=False):
-        print(green + "   " + "  ".join(str(i) for i in range(self.grid_size)) + end_color)
+        print(
+            green + "   " + "  ".join(str(i) for i in range(self.grid_size)) +
+            end_color
+        )
     # Print grid row in letters
         for i, row in enumerate(grid):
             print(green + chr(65 + i) + end_color + "  " + "  ".join(
-                blue + "~" + end_color if cell == "~" or (cell == "⛴" and hide_ships) else
+                blue + "~" + end_color if cell ==
+                "~" or (cell == "⛴" and hide_ships) else
                 cell for cell in row))
         print()
 
@@ -67,13 +80,24 @@ class Battleship:
     def player_guess(self):
         while True:
             try:
-                row, col = input("Enter your guess Row  and Column (e.g. A5): ").upper()
+                row, col = input(
+                    "Enter your guess Row  and Column (e.g. A5): "
+                ).upper()
                 row = ord(row) - 65
                 col = int(col)
                 if (row, col) in self.player_attempts:
-                    print(red + "You have alredy tried this spot! Try again." + end_color)
-                elif (row < 0 or row >= self.grid_size or col < 0 or col >= self.grid_size):
-                    print(red + "Invalid guess you off-grid! Try again." + end_color)
+                    print(
+                        red + "You have alredy tried this spot! Try again." +
+                        end_color
+                    )
+                elif (
+                    row < 0 or row >= self.grid_size or col < 0 or col >=
+                    self.grid_size
+                ):
+                    print(
+                        red + "Invalid guess you off-grid! Try again." +
+                        end_color
+                    )
                 else:
                     self.player_attempts.add((row, col))
                     if (row, col) in self.computer_ships_positions:
@@ -85,37 +109,61 @@ class Battleship:
                         self.computer_grid[row][col] = "x"
                     break
             except ValueError:
-                print(red + "Invalid input! Enter row letter and column number." + end_color)
+                print(
+                    red + "Invalid input!\
+                          Enter row letter and column number." +
+                    end_color
+                    )
 
     # Allow the computer to make a move
     def computer_guess(self):
-        row, col = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
+        row = random.randint(0, self.grid_size - 1)
+        col = random.randint(0, self.grid_size - 1)
         while (row, col) in self.computer_attempts:
-            row, col = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
+            row = random.randint(0, self.grid_size - 1)
+            col = random.randint(0, self.grid_size - 1)
         self.computer_attempts.add((row, col))
         if (row, col) in self.player_ships_positions:
-            print(red + f"Computer hit your ship at ({chr(65 + row)}, {col})!" + end_color)
+            print(
+                red + f"Computer hit your ship at ({chr(65 + row)}, {col})!" +
+                end_color
+            )
             self.player_grid[row][col] = "💥"
             self.player_ships_positions.remove((row, col))
         else:
-            print(yellow + f"Computer missed at ({chr(65 + row)}, {col})!" + end_color)
+            print(
+                yellow +
+                f"Computer missed at ({chr(65 + row)}, {col})!" +
+                end_color
+            )
             self.player_grid[row][col] = "x"
 
     # The main gameplay loop
     def play(self):
         print()
-        self.player_name = input(green + "Please enter your name: ")
+        self.player_name = input(green + " Please enter your name: ")
 
         print()
-        welcome_message = f"Welcome to Battleship Captain {self.player_name}!\n----------------------\n"
+        welcome_message = f" Welcome to Battleship Captain\
+ {self.player_name}!\n----------------------\n"
         for char in welcome_message:
             print(green + char, end='', flush=True)
             time.sleep(0.05)
-        rules = " Rules of Engagement:\n You will be playing against the computer.\n Each of you will have a grid with ships.\n The goal is to sink all of the opponent's ships by\n guessing their positions on the grid.\n If you hit a ship, it will be marked with 💥.\n If you miss, it will be marked with x.\n The battle continues until all ships of one player are sunk.\n-------------------------------\n"
+        rules = """ Rules of Engagement:
+ You will be playing against the computer.
+ Each of you will have a grid with ships.
+ The goal is to sink all of the opponent's ships by
+ guessing their positions on the grid.
+ If you hit a ship, it will be marked with 💥.
+ If you miss, it will be marked with x.
+ The battle continues until all ships of one player are sunk.
+ -------------------------------
+ """
         for char in rules:
             print(char, end='', flush=True)
             time.sleep(0.05)
-        promt = "Do you accept the mission? Press 'Y' to accept or 'N' to decline: "
+        promt = "Do you accept the mission?\
+ Press 'Y' to accept or 'N' to decline: "
         for char in promt:
             print(green + char + end_color, end='', flush=True)
             time.sleep(0.05)
@@ -134,7 +182,11 @@ class Battleship:
                 break
             turns += 1
         if self.player_ships_positions:
-            print(yellow + f"Congratulations Capitan {self.player_name}! You won in {turns} turns!" + end_color)
+            print(
+                yellow + f"Congratulations Capitan {self.player_name}!\
+ You won in {turns} turns!" +
+                end_color
+            )
         else:
             print(red + "Computer won! Better luck next time!" + end_color)
 
