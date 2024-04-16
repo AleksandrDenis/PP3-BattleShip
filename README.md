@@ -88,7 +88,10 @@ Before starting to write code, I began with pseudocode. Pseudocode is an essenti
     - While there are still ships on both grids, let the player and computer take turns guessing.
     - After each turn, check if all ships of one player have been sunk.
     - If all ships of one player have been sunk, end the game and declare the other player as the winner.
-
 11. Outside the class, create an instance of the Battleship class and start the game by calling the play method.
+
+## Chart
+
+
 
 
