@@ -1,6 +1,6 @@
 # import libraries
 import random
-import time 
+import time
 # ANSI Escape Codes
 blue = "\033[94m"
 green = "\033[92m"
@@ -8,6 +8,8 @@ red = "\033[91m"
 yellow = "\033[93m"
 end_color = "\033[0m"
 # Define the Battleship class
+
+
 class Battleship:
     # Initialize the game with grid size and ships chosen by the player
     def __init__(self):
@@ -29,7 +31,7 @@ class Battleship:
             self.ships_sizes = [1, 2, 3, 4, 5]
         else:
             self.ships_sizes = [1, 2, 3]
-    
+
     # Print the grid state
     def print_grids(self):
         print("Player's Grid:")
@@ -42,10 +44,10 @@ class Battleship:
         print(green + "   " + "  ".join(str(i) for i in range(self.grid_size)) + end_color)
     # Print grid row in letters
         for i, row in enumerate(grid):
-            print(green +chr(65 + i) + end_color + "  " + "  ".join(
-                blue + "~" + end_color if cell == "~" or (cell == "⛴" and hide_ships) else 
+            print(green + chr(65 + i) + end_color + "  " + "  ".join(
+                blue + "~" + end_color if cell == "~" or (cell == "⛴" and hide_ships) else
                 cell for cell in row))
-        print() # Print a blank line
+        print()
 
     # Place ships randomly on the grid
     def place_ships(self, grid, ship_positions):
@@ -101,18 +103,19 @@ class Battleship:
 
     # The main gameplay loop
     def play(self):
-        print() # Print a blank line
+        print()
         self.player_name = input(green + "Please enter your name: ")
-        print() # Print a blank line
+
+        print()
         welcome_message = f"Welcome to Battleship Captain {self.player_name}!\n----------------------\n"
         for char in welcome_message:
             print(green + char, end='', flush=True)
-            time.sleep(0.05)       
+            time.sleep(0.05)
         rules = " Rules of Engagement:\n You will be playing against the computer.\n Each of you will have a grid with ships.\n The goal is to sink all of the opponent's ships by\n guessing their positions on the grid.\n If you hit a ship, it will be marked with 💥.\n If you miss, it will be marked with x.\n The battle continues until all ships of one player are sunk.\n-------------------------------\n"
         for char in rules:
             print(char, end='', flush=True)
             time.sleep(0.05)
-        promt = "Do you accept the mission? Press 'Y' to accept or 'N' to decline: " 
+        promt = "Do you accept the mission? Press 'Y' to accept or 'N' to decline: "
         for char in promt:
             print(green + char + end_color, end='', flush=True)
             time.sleep(0.05)
@@ -134,6 +137,7 @@ class Battleship:
             print(yellow + f"Congratulations Capitan {self.player_name}! You won in {turns} turns!" + end_color)
         else:
             print(red + "Computer won! Better luck next time!" + end_color)
+
 
 # Run the game
 game = Battleship()
