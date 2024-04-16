@@ -55,7 +55,7 @@ class Battleship:
             while True:
                 orientation = random.choice(["horizontal", "vertical"])
                 if orientation == "horizontal":
-                    row = random.randint(0, self.grid_size -1)
+                    row = random.randint(0, self.grid_size - 1)
                     col = random.randint(0, self.grid_size - size)
                     if all(grid[row][col + i] == "~" for i in range(size)):
                         for i in range(size):
