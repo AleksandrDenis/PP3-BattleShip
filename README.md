@@ -105,6 +105,7 @@ Deployment Steps After Setting Up Your Account:
 8. Select deploy branch.
 9. After deploymed done select open app to view deployd project.
 10. More information can be found here - [HEROKU](https://devcenter.heroku.com/articles/git)
+11. Cloning a repository more information can be found here [Cloning a GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 # Features
 
