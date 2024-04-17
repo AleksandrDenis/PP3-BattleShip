@@ -25,8 +25,7 @@ This is a simple implementation of the classic Battleship game in Python. Player
    3. [Validator Testing](#validator-testing)
    4. [Bugs](#bugs)
 7. [Languages and Programs](#languages-and-programs)
-8. [Credits](#credits)
-    1. [Code](#code)
+8. [Credits](#credits)   
 9. [Acknowledgements](#acknowledgements)
 
 # UX
