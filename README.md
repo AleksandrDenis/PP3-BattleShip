@@ -108,6 +108,52 @@ Deployment Steps After Setting Up Your Account:
 11. Cloning a repository more information can be found here [Cloning a GitHub repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 # Features
+Game runs in a mockup terminal:
+Terminal Grid Game Features:
+
+1. Grid Size Selection:
+  1. The game starts by prompting the user to choose a grid size: either 6 or 10.
+  2. If an incorrect option is selected, the user is asked to choose again until a valid size is provided.
+2. Player Name Input:
+  1. After selecting the grid size, the user is presented with an option to enter their name or leave it blank.
+  2. If the user provides a name, a welcome message with the chosen name is printed to the terminal.
+3. Game Rules Display:
+  1. Following the welcome message, the game displays the rules of play.
+  2. These rules explain how the game works, the objective.
+4. Accept or Decline Game:
+  1. The user is then presented with the option to accept or decline the game.
+     - They can enter:
+     1. “Y” to accept and start playing.
+     2. “N” to decline the game or any other key to exit the game.
+      - Game Decline Message:
+      1. If the user declines the game, a message is displayed indicating that the game has been declined. The game then exits.
+
+![Start-Game](readme-docs/main.png)
+
+1. Grid Initialization:
+  * The terminal displays the grid size chosen by the user, either 6x6 or 10x10.
+  * A predetermined number of ships are randomly placed on the grid, with the quantity depending on the grid size.
+2. User Turns:
+  * The user makes their move by selecting a cell using row and column coordinates.
+  * After the move, a message is displayed in the terminal indicating whether it was a hit or a miss.
+  * The chosen location is clearly marked on the grid to track the user’s moves.
+3. Boundary Warning:
+  * If the user attempts to select a cell outside the grid, a warning message is printed to the terminal advising them to choose a valid location within the grid.
+4. Computer’s Turn:
+  * The computer’s move is automatically generated and printed in the terminal.
+  * The terminal shows the location where the computer has fired, allowing the user to see the computer’s attempts.
+5. Gameplay Mechanics:
+  * The game continues in turns until all ships are hit or one player has no remaining ships.
+  * The grid updates after each turn to reflect the current state of play.
+  * Strategic thinking and a bit of luck are key to outmaneuvering the opponent and securing victory.
+
+![Game-play](readme-docs/play.png)
+
+1. End of Game:
+  * Once all ship destroyed message printed to terminal who won, if user won it tells how many turns it took to win.
+
+![End-game](readme-docs/end.png)
+
 
 # Testing
 ## Testing User Stories
@@ -165,6 +211,8 @@ Game End | No input required | The script should display a message indicating wh
 
 ## Validator Testing
 No errors. One warnings regarding line too long, were returned when passing through the the [CI Python Linter Validator](https://pep8ci.herokuapp.com/). Warning fixed by breking lines.
+
+![Validatore](readme-docs/validator.png)
 
 
 
