@@ -163,10 +163,8 @@ Computer Guess | No input required | The script should display the computer's gu
 Game End | No input required | The script should display a message indicating who won the game and amout trys it took | Yes
 
 
-
-
-
 ## Validator Testing
+No errors. One warnings regarding line too long, were returned when passing through the the [CI Python Linter Validator](https://pep8ci.herokuapp.com/). Warning fixed by breking lines.
 
 
 
