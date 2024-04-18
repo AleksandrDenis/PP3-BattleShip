@@ -7,12 +7,15 @@ green = "\033[92m"
 red = "\033[91m"
 yellow = "\033[93m"
 end_color = "\033[0m"
+
+
 # Define the Battleship class
-
-
 class Battleship:
-    # Initialize the game with grid size and ships chosen by the player
     def __init__(self):
+        """
+        Choose grid size and initialize the grids
+        Determine the ships sizes based on the grid size
+        """
         while True:
             try:
                 self.grid_size = int(input(
@@ -23,8 +26,8 @@ class Battleship:
                 break
             except ValueError:
                 print(
-                    red + "Invalid grid size.\
-                          Please choose 6 or 10." + end_color
+                    red + " Invalid grid size.\
+ Please choose 6 or 10." + end_color
                 )
         self.player_grid = [
             ["~"] * self.grid_size for _ in range(self.grid_size)
@@ -41,20 +44,24 @@ class Battleship:
         else:
             self.ships_sizes = [1, 2, 3]
 
-    # Print the grid state
     def print_grids(self):
+        """
+        Print the player's grid and the computer's grid
+        """
         print("Player's Grid:")
         self.print_grid(self.player_grid)
         print("Computer's Grid:")
         self.print_grid(self.computer_grid, hide_ships=True)
 
-    # Print grid numbers
     def print_grid(self, grid, hide_ships=False):
+        """
+        Print the grid with column numbers
+        Print the grid with row Letters
+        """
         print(
             green + "   " + "  ".join(str(i) for i in range(self.grid_size)) +
             end_color
         )
-    # Print grid row in letters
         for i, row in enumerate(grid):
             print(green + chr(65 + i) + end_color + "  " + "  ".join(
                 blue + "~" + end_color if cell ==
@@ -62,8 +69,10 @@ class Battleship:
                 cell for cell in row))
         print()
 
-    # Place ships randomly on the grid
     def place_ships(self, grid, ship_positions):
+        """
+        Place ships on the grid randomly
+        """
         for size in self.ships_sizes:
             while True:
                 orientation = random.choice(["horizontal", "vertical"])
@@ -76,8 +85,11 @@ class Battleship:
                             ship_positions.add((row, col + i))
                         break
 
-    # Allow the player to make a move and check if of grid moves
     def player_guess(self):
+        """
+        Allow the player to make a move
+        check if the move is valid
+        """
         while True:
             try:
                 row, col = input(
@@ -117,6 +129,10 @@ class Battleship:
 
     # Allow the computer to make a move
     def computer_guess(self):
+        """
+        Computer makes a random move
+        desplay hit or miss message
+        """
         row = random.randint(0, self.grid_size - 1)
         col = random.randint(0, self.grid_size - 1)
         while (row, col) in self.computer_attempts:
@@ -138,8 +154,16 @@ class Battleship:
             )
             self.player_grid[row][col] = "x"
 
-    # The main gameplay loop
     def play(self):
+        """
+        enter player name
+        display welcome message
+        display rules of the game
+        ask player to accept the mission
+        place ships for player and computer
+        loop through the game until one player wins
+        Print outcome of the game
+        """
         print()
         self.player_name = input(green + " Please enter your name: ")
 
