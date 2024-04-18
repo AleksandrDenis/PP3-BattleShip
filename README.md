@@ -1,4 +1,4 @@
-# BattleShip
+# Battleship
 ## Overview
 This is third projects developed as part of the Code Institute's curriculum.
 
@@ -25,8 +25,7 @@ This is a simple implementation of the classic Battleship game in Python. Player
    3. [Validator Testing](#validator-testing)
    4. [Bugs](#bugs)
 7. [Languages and Programs](#languages-and-programs)
-8. [Credits](#credits)
-    1. [Code](#code)
+8. [Credits](#credits)   
 9. [Acknowledgements](#acknowledgements)
 
 # UX
@@ -214,9 +213,25 @@ No errors. One warnings regarding line too long, were returned when passing thro
 
 ![Validatore](readme-docs/validator.png)
 
+## Bugs
+* While testing the game, I noticed that if a player selected an incorrect grid size, the error message wasn’t printing in the terminal. I fixed this issue by adding a try and except block.
+* While setting up the ships on the grid, I encountered issues due to misspelled variables like shipp or ship where ships should have been used. I resolved this by correcting the spelling mistakes.
+* No other known bugs detected.
 
+# Languages and Programs
+* Python used to write script [Python](https://www.python.org/doc/)
+* Python Tutor used for debugger [Visual Debugger](https://pythontutor.com/)
+* Replit used to test and write parts of script [Replit](https://replit.com/login?source=home&goto=%2F%7E)
 
+# Credits
+* [W3Schools](https://www.w3schools.com/), [PEP 8 Style Guide]( https://peps.python.org/pep-0008/) were consulted on a regular basis to understand the code being implement and write more readble code.
+* Youtube video from [Video](https://www.youtube.com/watch?v=alJH_c9t4zw) was used as refernce for game logic.
 
+# Acknowledgements
+* Code Institute and its amazing Slack community for their support and providing me with the necessary knowledge to complete this project.
+* My tutor, Marcel, for his invaluable feedback and guidance.
+ 
+[Back To Top](#battleship)
 
 
 
