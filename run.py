@@ -72,7 +72,7 @@ class Battleship:
 
     def place_ships(self, grid, ship_positions):
         """
-        Place ships on the grid randomly
+        Place ships on the grid randomly horizontally or vertically
         """
         for size in self.ships_sizes:
             while True:
@@ -84,6 +84,14 @@ class Battleship:
                         for i in range(size):
                             grid[row][col + i] = "⛴"
                             ship_positions.add((row, col + i))
+                        break
+                else:
+                    row = random.randint(0, self.grid_size - size)
+                    col = random.randint(0, self.grid_size - 1)
+                    if all(grid[row + i][col] == "~" for i in range(size)):
+                        for i in range(size):
+                            grid[row + i][col] = "⛴"
+                            ship_positions.add((row + i, col))
                         break
 
     def player_guess(self):
@@ -128,7 +136,6 @@ class Battleship:
                     end_color
                     )
 
-    # Allow the computer to make a move
     def computer_guess(self):
         """
         Computer makes a random move
