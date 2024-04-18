@@ -6,6 +6,7 @@ blue = "\033[94m"
 green = "\033[92m"
 red = "\033[91m"
 yellow = "\033[93m"
+blink = "\033[5m"
 end_color = "\033[0m"
 
 
@@ -114,7 +115,7 @@ class Battleship:
                     self.player_attempts.add((row, col))
                     if (row, col) in self.computer_ships_positions:
                         print(red + "Hit!" + end_color)
-                        self.computer_grid[row][col] = "💥"
+                        self.computer_grid[row][col] = blink + "💥" + end_color # test blink in terminal
                         self.computer_ships_positions.remove((row, col))
                     else:
                         print(yellow + "Miss!" + end_color)
@@ -144,7 +145,7 @@ class Battleship:
                 red + f"Computer hit your ship at ({chr(65 + row)}, {col})!" +
                 end_color
             )
-            self.player_grid[row][col] = "💥"
+            self.player_grid[row][col] = blink + "💥" + end_color # test blink in terminal
             self.player_ships_positions.remove((row, col))
         else:
             print(
